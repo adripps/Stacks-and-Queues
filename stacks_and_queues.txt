@@ -1,0 +1,51 @@
+Exercises: 
+1. Stack oragnizes the data by LIFO(Last in first out) and queue organizes the data by FIFO(First in first out).
+2. They're both data structures that organize the elements into a list
+3. For UNDO I would use a stack data structure because the last item to enter would be the item that needs to be removed. For REDO I would create another stack data structure so the last item that was undone could be moved back to the undo stack.
+Programming Questions:
+1.
+var stack = [];
+var string = "Bloc!"
+for (var i = 0; i < string.length; i++){
+  stack.push(string[i])
+}
+string = '';
+var stackLengthPlaceHolder = stack.length;
+for (var i = 0; i < stackLengthPlaceHolder; i++){
+  string = string + stack.pop()
+}
+console.log(string)
+
+2.
+class Stack {
+   constructor(){
+     this.pop = function(queue){
+       var removedItem = [];          
+       for(var i = 0; i < queue.length; i++){
+         if(i == queue.length - 1){  
+           removedItem.push(queue[i]);
+         }                   
+       }      
+       return removedItem;       
+     }
+  }
+}
+
+var stack = new Stack();
+console.log(stack.pop('Bloc!'))
+
+1.
+class Queue {
+    constructor(){
+     this.items = []; 
+    }	
+	enqueue(element){
+		this.items.push(element);	
+	}
+	dequeue(){
+		if(this.items.length == 0){
+			return;
+		}
+		return this.items.shift();
+	}    
+}
